@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,7 +10,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../css/styles.css" />
-    <title>Document</title>
+    <title>Solicitud de Préstamo</title>
   </head>
   <body>
     <header>
@@ -53,48 +53,50 @@
             </ul>
 
             <li class="d-flex p-2" role="search">
-              <a class="nav-link" href="../pages/login.html"
-                >Inicio de sesion</a
-              >
+              <a class="nav-link" href="./pages/login.html">Inicio de sesion</a>
             </li>
           </div>
         </div>
       </nav>
     </header>
-    <main class="main-deuda">
-      <div class="container-deuda">
-        <div class="item">
-          <div class="circle">1</div>
-          Lorem ipsum dolor sit amet...
-        </div>
-        <div class="item">
-          <div class="circle">2</div>
-          Lorem ipsum dolor sit amet...
-        </div>
-        <div class="item">
-          <div class="circle">3</div>
-          Lorem ipsum dolor sit amet...
-        </div>
-        <div class="item">
-          <div class="circle">4</div>
-          Lorem ipsum dolor sit amet...
-        </div>
-        <div class="item">
-          <div class="circle">5</div>
-          Lorem ipsum dolor sit amet...
-        </div>
-        <div class="item">
-          <div class="circle">6</div>
-          Lorem ipsum dolor sit amet...
-        </div>
+
+    <!-- Sección de Formulario -->
+    <div class="container-prestamo">
+      <div class="video">
+        <video width="400" controls>
+          <source src="../media/video/videoplayback.mp4" type="video/mp4" />
+          Tu navegador no soporta el video.
+        </video>
       </div>
 
-      <!-- Botón de más información -->
-      <div class="info-container">
-        <strong>Mas información</strong>
-        <button>Click</button>
+      <div class="form">
+        <h2>Solicitar Préstamo</h2>
+        <input type="text" placeholder="Nombre" />
+        <input type="text" placeholder="Apellido Paterno" />
+        <input type="text" placeholder="Apellido Materno" />
+        <input type="email" placeholder="Email" />
+        <button class="btn">Enviar datos</button>
       </div>
-    </main>
+    </div>
+
+    <!-- Sección de Pasos -->
+    <h2 style="text-align: center; padding-top: 20px">
+      Pasos Para tu Próximo Préstamo
+    </h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-number">1</span>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+      <div class="step">
+        <span class="step-number">2</span>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+      <div class="step">
+        <span class="step-number">3</span>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </div>
 
     <footer class="text-center bg-dark">
       <div class="container text-white py-4 py-lg-5">
