@@ -1,0 +1,43 @@
+.main-deuda {
+    background: linear-gradient(347deg, rgba(2, 40, 115, 1) 9%, rgba(3, 101, 140, 1) 100%);
+    color: white;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh 0;
+  }
+  
+  .container-deuda {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 90%;
+    margin: auto;
+    align-items: center;
+  }
+  
+  .item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .info-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  

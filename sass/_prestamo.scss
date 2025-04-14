@@ -1,0 +1,25 @@
+.container-prestamo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    background: linear-gradient(347deg, rgba(2, 40, 115, 1) 9%, rgba(3, 101, 140, 1) 100%);
+    color: white;
+    padding: 20px;
+  }
+  
+  .form {
+    padding: 20px;
+  
+    h2 {
+      text-align: center;
+    }
+  
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: none;
+      border-radius: 5px;
+    }
+  }
+  

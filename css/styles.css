@@ -1,415 +1,309 @@
-/*
-Estilos gnerales los cuales se pueden compartir con todos los componentes
-*/
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bg-dark {
+  background-color: #333;
+}
 
 .container-two {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
-    gap: 10px; /* Espacio entre los divs */
-  }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
 
+.box-container {
+  height: 100px;
+  background-color: lightcoral;
+  text-align: center;
+  line-height: 100px;
+}
+
+@media (max-width: 768px) {
+  .container-two {
+    grid-template-columns: 1fr;
+  }
   .box-container {
-    height: 100px;
-    background-color: lightcoral;
-    text-align: center;
-    line-height: 100px;
+    height: auto;
+    line-height: normal;
+    padding: 20px;
   }
-
- .text-center{
-    text-align: center;
- }
-/*Estilos para navbar*/
+}
 .nav-bar-color {
-    background-color:#333 ;
+  background-color: #333;
 }
 
 .nav-link {
-    color: white;
+  color: white;
 }
-
-
 .nav-link:hover {
-    color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.btn {
-    background-color: #1E3A8A; /* Azul oscuro */
-    color: white;
-    border: none;
-}
-
-.btn:hover {
-    background-color: #3B82F6; /* Azul vibrante */
-    color: #F8FAFC; /* Blanco suave */
-}
-
-.container-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
-    background-color: #f3f3f3;
-    width: 100vw; /* Usa todo el ancho de la ventana */
-    max-width: 100%; /* Asegura que no tenga un límite de ancho */
-    margin: 0; /* Elimina márgenes extra */
-}
-
-.items-color{
-    background: linear-gradient(347deg, rgba(2,40,115,1) 9%, rgba(3,101,140,1) 100%);
-    color: white;
-}
-
-
-.bg-dark{
-
-    background-color: #333;
-
-}
-
-/* Media Queries para móviles */
 @media (max-width: 768px) {
-    .container-two {
-        grid-template-columns: 1fr; /* Una columna en dispositivos pequeños */
-    }
-
-    .container-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .box-container {
-        height: auto;
-        line-height: normal;
-        padding: 20px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-    }
-
-    nav ul li {
-        width: 100%;
-        text-align: center;
-    }
-
-    nav ul li a {
-        display: block;
-        padding: 10px;
-    }
-
-    section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .div-card {
-        margin-bottom: 20px;
-    }
-}
-
-
-
-/*
-login 
-*/
-/* Contenedor centrado con Grid */
-.container-login {
-    display: grid;
-    place-items: center;
-    background: linear-gradient(347deg, rgba(2,40,115,1) 9%, rgba(3,101,140,1) 100%);
-    height: 80vh;
-}
-
-
-/* Contenedor del login */
-.login-box {
-    background: #222;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 400px;
+  nav ul {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    color: white;
-}
-
-/* Inputs y botón */
-input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-}
-
-button {
-    background-color: #3366ff;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: #2244cc;
-}
-
-/* 🔹 Media Query para pantallas pequeñas (menores de 480px) */
-@media (max-width: 480px) {
-    .login-box {
-        width: 100%;
-        padding: 1.5rem;
-    }
-    
-    body {
-        padding: 10px;
-    }
-
-    button {
-        padding: 12px;
-        font-size: 1rem;
-    }
-}
-
-
-/*quiero un prestamo*/
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
+    align-items: center;
     padding: 0;
-}
-
-/* Contenedor Principal */
-.container-prestamo {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    background: linear-gradient(347deg, rgba(2,40,115,1) 9%, rgba(3,101,140,1) 100%);
-    color: white;
-    padding: 20px;
-}
-
-
-
-/* Formulario */
-.form {
-    padding: 20px;
-}
-
-.form h2 {
-    text-align: center;
-}
-
-.form input {
+  }
+  nav ul li {
     width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border: none;
-    border-radius: 5px;
-}
-
-.btn {
+    text-align: center;
+  }
+  nav ul li a {
     display: block;
-    width: 100%;
-    background: #4A90E2;
-    color: white;
     padding: 10px;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    border-radius: 5px;
-}
-
-/* Sección de Pasos */
-.steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 40px;
-    text-align: center;
-}
-
-.step {
-    background: #f8f8f8;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.step img {
-    width: 50px;
-    height: 50px;
-}
-
-.step-number {
-    background: gray;
-    color: white;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    border-radius: 50%;
-    font-weight: bold;
-}
-
-/* 📱 Media Query para móviles (máx. 768px) */
-@media (max-width: 768px) {
-    .container {
-        grid-template-columns: 1fr; /* Apilar formulario y video */
-        text-align: center;
-    }
-
-    .video {
-        width: 100%;
-    }
-
-    .steps {
-        grid-template-columns: repeat(2, 1fr); /* Pasos en 2 columnas */
-    }
-}
-
-/* 📱 Media Query para móviles pequeños (máx. 600px) */
-@media (max-width: 600px) {
-    .steps {
-        grid-template-columns: 1fr; /* Pasos en una sola columna */
-    }
-}
-
-
-/*quiero un prestamo*/
-
-
-/* Sección principal */
-.main-section {
-    background: linear-gradient(347deg, rgba(2,40,115,1) 9%, rgba(3,101,140,1) 100%);
-    color: white;
-    text-align: center;
-    padding: 40px;
-    display: flex;
+  }
+  section {
     flex-direction: column;
     align-items: center;
+    text-align: center;
+  }
+  .div-card {
+    margin-bottom: 20px;
+  }
+}
+.btn {
+  background-color: #1e3a8a;
+  color: white;
+  border: none;
+}
+.btn:hover {
+  background-color: #3b82f6;
+  color: #f8fafc;
 }
 
-video {
-    width: 50%;
-    max-width: 400px;
-    border-radius: 10px;
-    margin-top: 10px;
+.btn-primary {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .buttons {
-    display: flex;
-    gap: 10px; /* Espacio entre los botones */
-    justify-content: center; /* Centra los botones horizontalmente */
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
 
-
-.btn-primary {
-    background-color: #4285F4;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
+.container-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #f3f3f3;
+  width: 100vw;
+  max-width: 100%;
+  margin: 0;
 }
 
-/* Sección de simulador */
+@media (max-width: 768px) {
+  .container-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.items-color {
+  background: linear-gradient(347deg, rgb(2, 40, 115) 9%, rgb(3, 101, 140) 100%);
+  color: white;
+}
+
+.container-login {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(347deg, rgb(2, 40, 115) 9%, rgb(3, 101, 140) 100%);
+  height: 80vh;
+}
+
+.login-box {
+  background: #222;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+button {
+  background-color: #3366ff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+button:hover {
+  background-color: #2244cc;
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    width: 100%;
+    padding: 1.5rem;
+  }
+  body {
+    padding: 10px;
+  }
+  button {
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+.container-prestamo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  background: linear-gradient(347deg, rgb(2, 40, 115) 9%, rgb(3, 101, 140) 100%);
+  color: white;
+  padding: 20px;
+}
+
+.form {
+  padding: 20px;
+}
+.form h2 {
+  text-align: center;
+}
+.form input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 5px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 40px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}
+.step {
+  background: #f8f8f8;
+  padding: 20px;
+  border-radius: 10px;
+}
+.step img {
+  width: 50px;
+  height: 50px;
+}
+.step .step-number {
+  background: gray;
+  color: white;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.main-section {
+  background: linear-gradient(347deg, rgb(2, 40, 115) 9%, rgb(3, 101, 140) 100%);
+  color: white;
+  text-align: center;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main-section video {
+  width: 50%;
+  max-width: 400px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
 .simulator-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    padding: 40px;
-    background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 40px;
+  background-color: white;
 }
 
 .simulator-box,
 .result-box {
-    background: #b0b0b0;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background: #b0b0b0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-input, select {
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-}
-
-button {
-    display: block;
-    margin-top: 10px;
-}
-
-/* cambia tu deuda*/
 
 .main-deuda {
-    background: linear-gradient(347deg, rgba(2,40,115,1) 9%, rgba(3,101,140,1) 100%);
-    color: white;
-    height: 70vh; /* Ocupará el 70% de la pantalla */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centrar contenido verticalmente */
-    align-items: center;
-    padding: 5vh 0; /* Evita que los elementos se peguen arriba */
+  background: linear-gradient(347deg, rgb(2, 40, 115) 9%, rgb(3, 101, 140) 100%);
+  color: white;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5vh 0;
 }
 
 .container-deuda {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Divide en 2 columnas iguales */
-    gap: 20px;
-    max-width: 90%;
-    margin: auto;
-    align-items: center; /* Asegura que los elementos se alineen */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 90%;
+  margin: auto;
+  align-items: center;
 }
 
 .item {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .circle {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: lightgray;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 10px;
 }
 
-/* Estilos del botón de información */
 .info-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
 }
 
-button {
-    background-color: #4a8bf5;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-/* 📱 Ajustes para pantallas pequeñas */
-@media (max-width: 768px) {
-    .container-deuda {
-        grid-template-columns: 1fr; /* Pasa a una sola columna */
-        text-align: center;
-    }
-
-    .info-container {
-        justify-content: center; /* Centra el botón */
-    }
-}
+/*# sourceMappingURL=styles.css.map */
