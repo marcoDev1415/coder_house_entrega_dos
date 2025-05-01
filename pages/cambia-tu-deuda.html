@@ -14,87 +14,107 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg nav-bar-color">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Findex</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <!-- Checkbox para control del menú -->
+          <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+      
+          <!-- Etiqueta de hamburguesa -->
+          <label for="menu-toggle" class="hamburger">&#9776;</label>
+      
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="../index.html"
-                  >Inicio</a
-                >
+                <a class="nav-link" href="#">Findex</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../pages/quiero-prestamo.html"
-                  >Quiero un prestamo</a
-                >
+                <a class="nav-link" aria-current="page" href="../index.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../pages/quiero-prestar.html"
-                  >Quiero prestar</a
-                >
+                <a class="nav-link" href="../pages/quiero-prestamo.html" aria-disabled="true">Quiero un prestamo</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../pages/cambia-tu-deuda.html"
-                  >Cambia tu deuda</a
-                >
+                <a class="nav-link" href="../pages/quiero-prestar.html" aria-disabled="true">Quiero prestar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../pages/cambia-tu-deuda.html" aria-disabled="true">Cambia tu deuda</a>
               </li>
             </ul>
-
-            <li class="d-flex p-2" role="search">
-              <a class="nav-link" href="../pages/login.html"
-                >Inicio de sesion</a
-              >
-            </li>
+      
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="../pages/login.html">Inicio de sesión</a>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
+      
+      
     </header>
     <main class="main-deuda">
       <div class="container-deuda">
         <div class="item">
           <div class="circle">1</div>
-          Lorem ipsum dolor sit amet...
+          <div>
+            <h2>Evalúa tu Deuda</h2>
+            <p>
+              Comprende a fondo tus deudas bancarias: tasas de interés, plazos y
+              condiciones actuales. Identifica cuáles deseas consolidar o
+              transferir para optimizar tus finanzas.
+            </p>
+          </div>
         </div>
+    
         <div class="item">
           <div class="circle">2</div>
-          Lorem ipsum dolor sit amet...
+          <div>
+            <h2>Organiza tus Pagos</h2>
+            <p>Investiga las alternativas disponibles: portabilidad de crédito, compra de deuda, o nuevos préstamos con mejores condiciones en otros bancos.</p>
+          </div>
         </div>
+    
         <div class="item">
           <div class="circle">3</div>
-          Lorem ipsum dolor sit amet...
+          <div>
+            <h2>Consolida tus Créditos</h2>
+            <p>Analiza detalladamente las propuestas de diferentes instituciones. Considera tasas, comisiones, plazos y beneficios adicionales antes de tomar una decisión informada.</p>
+          </div>
         </div>
+    
         <div class="item">
           <div class="circle">4</div>
-          Lorem ipsum dolor sit amet...
+          <div>
+            <h2>Negocia Nuevas Condiciones</h2>
+            <p>Prepara la documentación requerida por el nuevo banco para la solicitud de cambio de deuda. Esto puede incluir identificaciones, comprobantes de ingresos y estados de cuenta.</p>
+          </div>
         </div>
+    
         <div class="item">
           <div class="circle">5</div>
-          Lorem ipsum dolor sit amet...
+          <div>
+            <h2>Automatiza tus Pagos</h2>
+            <p>Presenta tu solicitud formalmente y sigue el proceso indicado por la institución. Mantente en comunicación para resolver cualquier duda o requerimiento adicional.</p>
+          </div>
         </div>
+    
         <div class="item">
           <div class="circle">6</div>
-          Lorem ipsum dolor sit amet...
+          <div>
+            <h2>Monitorea tu Progreso</h2>
+            <p>Una vez aprobada tu solicitud, formaliza el nuevo contrato y asegúrate de que el banco liquide tu deuda anterior de manera correcta y oportuna. ¡Disfruta de tus nuevas condiciones!</p>
+          </div>
         </div>
       </div>
-
+    
       <!-- Botón de más información -->
-      <div class="info-container">
-        <strong>Mas información</strong>
-        <button>Click</button>
+      <div>
+        <a class="btn-dev" href="../pages/login.html" class="btn-dev">Regístrate</a>
       </div>
+      
+      
     </main>
+    
 
     <footer class="text-center bg-dark">
       <div class="container text-white py-4 py-lg-5">

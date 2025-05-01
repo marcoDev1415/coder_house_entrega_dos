@@ -1,41 +1,96 @@
-.nav-bar-color {
-    background-color: #333;
-  }
-  
-  .nav-link {
-    color: white;
-  
-    &:hover {
-      color: rgba(255, 255, 255, 0.7);
-    }
-  }
-  
-  @media (max-width: 768px) {
-    nav ul {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0;
-    }
-  
-    nav ul li {
-      width: 100%;
-      text-align: center;
-    }
-  
-    nav ul li a {
+$breakpoint: 768px;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  background-color: #fff;
+  position: relative;
+
+  .hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+
+    @media (max-width: $breakpoint) {
       display: block;
-      padding: 10px;
-    }
-  
-    section {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-  
-    .div-card {
-      margin-bottom: 20px;
     }
   }
-  
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .navbar-nav {
+    display: flex;
+    gap: 10px;
+
+    .nav-item {
+      .nav-link {
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+        padding: 0.7em 2em;
+        border-radius: 2px;
+        position: relative;
+        color: black;
+        text-decoration: none;
+        transition: 0.3s ease all;
+        z-index: 1;
+        overflow: hidden;
+        cursor: pointer;
+
+        &::before {
+          transition: 0.5s all ease;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          right: 50%;
+          bottom: 0;
+          opacity: 0;
+          content: '';
+          background-color: black;
+          z-index: -1;
+        }
+
+        &:hover,
+        &:focus {
+          color: white;
+
+          &::before {
+            left: 0;
+            right: 0;
+            opacity: 1;
+          }
+        }
+
+        &:active {
+          transform: scale(0.9);
+        }
+      }
+    }
+
+    @media (max-width: $breakpoint) {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: white;
+      border-top: 1px solid #ccc;
+      gap: 0;
+
+      &.active {
+        display: flex;
+      }
+    }
+  }
+
+  #menu-toggle:checked ~ .navbar-nav {
+    display: flex;
+  }
+}

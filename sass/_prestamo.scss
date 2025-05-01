@@ -1,25 +1,135 @@
+$font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
 .container-prestamo {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    background: linear-gradient(347deg, rgba(2, 40, 115, 1) 9%, rgba(3, 101, 140, 1) 100%);
-    color: white;
-    padding: 20px;
+  display: grid;
+  place-items: center; // Centra horizontal y verticalmente
+   padding: 20px;
+  color: white;
+
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; // apilar en mobile
   }
-  
-  .form {
-    padding: 20px;
-  
-    h2 {
-      text-align: center;
-    }
-  
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0;
-      border: none;
-      border-radius: 5px;
+}
+
+
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  video {
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    background: white;
+    border-radius: 10px;
+    transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
+             0 0  0 2px rgb(190, 190, 190),
+             0.3em 0.3em 1em rgba(0,0,0,0.3);
+  }
+
+
+}
+
+.banner_section {
+  width: 100%;
+  float: left;
+  background-image: url(../media/images/index/banner-bg.png);
+  height: auto;
+  padding-bottom: 90px;
+  background-size: cover;
+}
+
+.layout_padding {
+  padding-top: 90px;
+  padding-bottom: 0px;
+}
+
+.best_taital{
+  width: 100%;
+  float: left;
+  font-size: 60px;
+  color: #ffffff;
+  text-align: center;
+  font-family: $font-stack;
+}
+
+.box_main {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 30px;
+  padding-left: 350px;
+  padding-bottom: 50px;
+  display: flex;
+}
+
+
+ .h2{
+
+  margin-top: 10px;
+  text-align: center; 
+  padding-top: 20px
+
+ }
+
+
+
+.form-two {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #ffffff;
+  padding: 20px;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 20px;
+  font-family: $font-stack;
+  font-size: 14px;
+  margin: 0 auto;
+
+  button {
+    align-self: flex-end;
+  }
+
+  ::placeholder {
+    font-family: $font-stack;
+    font-size: 13px;
+  }
+
+  @media (max-width: 600px) {
+    padding: 15px;
+    font-size: 13px;
+  }
+}
+
+
+
+.inputForm {
+  border: 1.5px solid $light-border;
+  border-radius: 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  transition: 0.2s ease-in-out;
+
+  &:focus-within {
+    border: 1.5px solid $primary-color;
+  }
+
+  .input {
+    margin-left: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 85%;
+    height: 100%;
+
+    &:focus {
+      outline: none;
     }
   }
-  
+}
