@@ -1,0 +1,17 @@
+.main-section {
+    background: linear-gradient(347deg, rgba(2, 40, 115, 1) 9%, rgba(3, 101, 140, 1) 100%);
+    color: white;
+    text-align: center;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    video {
+      width: 50%;
+      max-width: 400px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+  }
+  

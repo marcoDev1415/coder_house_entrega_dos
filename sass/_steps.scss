@@ -1,0 +1,42 @@
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px;
+    text-align: center;
+  }
+  
+  @media (max-width: 768px) {
+    .steps {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .steps {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .step {
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+  
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .step-number {
+      background: gray;
+      color: white;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+  }
+  
