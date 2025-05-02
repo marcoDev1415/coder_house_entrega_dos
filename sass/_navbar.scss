@@ -1,25 +1,13 @@
 $breakpoint: 768px;
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 1em 2em;
   background-color: #fff;
-  position: relative;
 
-  .hamburger {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-
-    @media (max-width: $breakpoint) {
-      display: block;
+  .logo {
+    img {
+      height: 40px;
     }
-  }
-
-  .menu-toggle {
-    display: none;
   }
 
   .navbar-nav {
@@ -74,23 +62,28 @@ $breakpoint: 768px;
     }
 
     @media (max-width: $breakpoint) {
-      display: none;
       flex-direction: column;
+      width: 100%;
+
+      .nav-item {
+        width: 100%;
+
+        .nav-link {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .navbar-collapse {
+    @media (max-width: $breakpoint) {
       position: absolute;
       top: 100%;
       left: 0;
       width: 100%;
       background: white;
       border-top: 1px solid #ccc;
-      gap: 0;
-
-      &.active {
-        display: flex;
-      }
+      z-index: 9999;
     }
-  }
-
-  #menu-toggle:checked ~ .navbar-nav {
-    display: flex;
   }
 }
