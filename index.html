@@ -1,195 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Metadatos básicos -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <link rel="stylesheet" href="./styles/main.css">
+    <title>Document</title>
+</head>
+<body>
+
     
-    <!-- Título de la página -->
-    <title>Inicio | Prestamos Inc</title>
-    
-    <!-- Metaetiquetas para SEO -->
-    <meta name="description" content="Prestamos Inc: Soluciones financieras a medida. Ofrecemos préstamos, consolidación de deudas y oportunidades de inversión para optimizar tus finanzas." />
-    <meta name="keywords" content="préstamos, consolidación de deudas, invertir dinero, soluciones financieras, créditos personales" />
-    <meta name="author" content="Prestamos Inc" />
-    <meta name="robots" content="index, follow" />
-    
-    <!-- Metaetiquetas para redes sociales (Open Graph) -->
-    <meta property="og:title" content="Inicio | Prestamos Inc" />
-    <meta property="og:description" content="Descubre nuestras soluciones financieras: préstamos, consolidación de deudas y oportunidades de inversión." />
-    <meta property="og:image" content="./media/images/index/logo.png" />
-    <meta property="og:url" content="https://www.prestamosinc.com" />
-    <meta property="og:type" content="website" />
-    
-    <!-- Metaetiquetas para Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Inicio | Prestamos Inc" />
-    <meta name="twitter:description" content="Prestamos Inc: Soluciones financieras a medida. Ofrecemos préstamos, consolidación de deudas y oportunidades de inversión." />
-    <meta name="twitter:image" content="./media/images/index/logo.png" />
-    
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    
-    <!-- Archivo CSS personalizado -->
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body class="d-flex flex-column min-vh-100">
-    <!-- Encabezado con barra de navegación -->
-    <header>
-      <nav class="navbar navbar-expand-lg bg-white">
-        <div class="container-fluid">
-          
-          <!-- Botón hamburguesa para dispositivos móviles -->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-      
-          <!-- Logo de la página -->
-          <a class="logo navbar-brand ms-2" href="#">
-            <img src="./media/images/index/logo.png" alt="Logo de Prestamos Inc"   width="40" height="40" >
-          </a>
-      
-          <!-- Menú de navegación -->
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Menú izquierdo con enlaces -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="./index.html">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./pages/quiero-prestamo.html">Quiero un préstamo</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./pages/quiero-prestar.html">Quiero prestar</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./pages/cambia-tu-deuda.html">Cambia tu deuda</a>
-              </li>
-            </ul>
-      
-            <!-- Menú derecho con enlace de inicio de sesión -->
-            <ul class="navbar-nav">
-              <li class="nav-item login_text">
-                <a class="nav-link" href="./pages/login.html">Inicio de sesión</a>
-              </li>
-            </ul>
+
+     <header>
+        <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+          <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="../../img/logo.png" class="h-8" alt="Flowbite Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">ShieldApp</span>
+            </a>
+            <button data-collapse-toggle="navbar-dropdown" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-dropdown" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+              <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <li>
+                  <a href="./index.html" class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Home</a>
+                </li>
+                <li>
+                    <button id="dropdownNavbarLink1" data-dropdown-toggle="dropdownNavbar1" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Usuarios<svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                     </svg></button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownNavbar1" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownNavbarLink1">
+                          <li>
+                            <a href="./pages/user/AddUser.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Agregar Usuario</a>
+                          </li>
+                          <li>
+                            <a href="./pages/user/ViewUser.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ver Usuarios</a>
+                          </li>
+                          <li>
+                            <a href="./pages/user/ValidateToken.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Validar Token</a>
+                          </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <button id="dropdownNavbarLink2" data-dropdown-toggle="dropdownNavbar2" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">APIs<svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                     </svg></button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownNavbar2" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownNavbarLink2">
+                          <li>
+                            <a href="./pages/user/Addtool.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Agregar API</a>
+                          </li>
+                          <li>
+                            <a href="./pages/user/ViewTool.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ver APIs</a>
+                          </li>
+                          <li>
+                            <a href="./pages/user/EncryptToken.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Encriptar Token</a>
+                          </li>
+                        </ul>
+                    </div>
+                </li>
+              </ul>
+            </div>
           </div>
-      
-        </div>
-      </nav>
+        </nav>
     </header>
 
-    <!-- Contenido principal -->
     <main>
-      <article>
-        <!-- Primera sección con información general -->
-        <section>
-          <div class="container-grid">
-            <div class="layout">
-              <div class="img">
-                <img src="./media/images/index/logo.png" width="75" height="85" alt="Logo de Findex">
-              </div>
-              <span>Findex</span>
-              <p class="info">En una financiera, como la nuestra, te ofrecemos soluciones a medida. Somos intermediarios financieros que conectamos oportunidades con capital, brindando créditos, préstamos y otros servicios diseñados para tus necesidades.</p>
-              <div class="share">
-                <!-- Iconos de redes sociales -->
-                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                <path d="..."></path>
-                </svg></a>
-                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
-                <path d="..."></path>
-                </svg></a>
-                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-                <path d="..."></path>
-                </svg></a>
-                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
-                <path d="..."></path>
-                </svg></a>
-              </div>
-              <button>Regístrate</button>
-            </div>
-          </div>
-        </section>
+      <section class="bg-gray-900 text-white py-10 px-4">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-6">¿Qué es ShieldApp?</h2>
 
-        <!-- Segunda sección: Servicios -->
-        <section class="py-5">
-          <h1 class="text-center">Nuestros servicios</h1>
-          <br>
-          <div class="container-fluid">
-            <div class="row justify-content-start">
-              <!-- Tarjeta de servicio: Quiero un préstamo -->
-              <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="card">
-                  <img src="./media/images/index/image.png" class="card-img-top" alt="Imagen de préstamo">
-                  <div class="card-body">
-                    <h5 class="card-title">Quiero un Préstamo</h5>
-                    <p class="card-text">¿Necesitas un impulso económico? Obtén el financiamiento que necesitas para tus proyectos, compras o imprevistos. Explora nuestras opciones de préstamos personales con plazos y tasas competitivas. ¡Haz realidad tus planes!</p>
-                    <a href="./pages/quiero-prestamo.html" class="btn btn-primary">Quiero Prestar</a>
-                  </div>
-                </div>
-              </div>
-          
-              <!-- Tarjeta de servicio: Quiero prestar -->
-              <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="card">
-                  <img src="./media/images/index/prestamo.jpg" class="card-img-top" alt="Imagen de inversión">
-                  <div class="card-body">
-                    <h5 class="card-title">Quiero Prestar</h5>
-                    <p class="card-text">Haz crecer tus ahorros de forma inteligente. Descubre nuestras alternativas para invertir tu dinero y obtener rendimientos atractivos. Te ofrecemos opciones seguras y confiables para que tu capital trabaje por ti. ¡Potencia tus finanzas!</p>
-                    <a href="./pages/quiero-prestar.html" class="btn btn-primary">Prestar dinero</a>
-                  </div>
-                </div>
-              </div>
-          
-              <!-- Tarjeta de servicio: Cambiar deuda -->
-              <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="card">
-                  <img src="./media/images/index/deuda.jpg" class="card-img-top" alt="Imagen de consolidación de deuda">
-                  <div class="card-body">
-                    <h5 class="card-title">Cambiar Deuda</h5>
-                    <p class="card-text">Simplifica tus finanzas y reduce tus pagos. Consolida tus deudas bancarias en una sola con mejores condiciones. Analizamos tu situación y te ofrecemos la mejor opción para aliviar tu carga financiera. ¡Toma el control de tu economía!</p>
-                    <a href="./pages/cambia-tu-deuda.html" class="btn btn-primary">Pasa tu deuda con nosotros</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </article>
+    <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+      
+      <!-- Texto descriptivo -->
+      <div class="lg:w-1/2">
+        <p class="text-gray-300">
+          Este sistema permite almacenar, visualizar y administrar información clave de usuarios y APIs.
+          Desde aquí puedes gestionar quién tiene acceso y controlar las integraciones disponibles de forma centralizada.
+        </p>
+      </div>
+
+      <!-- Cards -->
+      <div class="flex flex-col sm:flex-row gap-6 lg:w-1/2">
+        
+        <!-- Card: Usuarios -->
+        <div class="bg-gray-800 p-6 rounded-lg shadow w-full sm:w-1/2">
+          <h3 class="text-xl font-semibold mb-2">Ver Usuarios</h3>
+          <p class="text-gray-400 mb-4">
+            Visualiza la lista de usuarios actuales, agrega nuevos usuarios fácilmente y administra sus accesos desde un solo lugar.
+          </p>
+          <a href="./pages/user/ViewUser.html" class="inline-flex items-center text-sm text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">
+            Ver usuarios
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Card: API -->
+        <div class="bg-gray-800 p-6 rounded-lg shadow w-full sm:w-1/2">
+          <h3 class="text-xl font-semibold mb-2">Ver API</h3>
+          <p class="text-gray-400 mb-4">
+            Consulta, prueba y gestiona todas las APIs disponibles de forma centralizada. Ideal para desarrolladores y equipos técnicos.
+          </p>
+          <a href="./pages/user/ViewTool.html" class="inline-flex items-center text-sm text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">
+            Ver APIs
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
     </main>
 
-    <!-- Pie de página -->
-    <footer class="text-center bg-dark">
-      <div class="container text-white py-4 py-lg-5">
-        <!-- Enlaces del pie de página -->
-        <ul class="list-inline">
-          <li class="list-inline-item me-4">
-            <a class="link-light" href="#">Prestamos Inc</a>
-          </li>
-          <li class="list-inline-item me-4">
-            <a class="link-light" href="#">2025</a>
-          </li>
-          <li class="list-inline-item">
-            <a class="link-light" href="#">Teléfono: 777-456-455</a>
-          </li>
-        </ul>
-        
-        <!-- Derechos de autor -->
-        <p class="text-muted mb-0">Copyright © 2025 Prestamos</p>
-      </div>
-    </footer>
 
-    <!-- Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
+    
+</body>
+</html> 

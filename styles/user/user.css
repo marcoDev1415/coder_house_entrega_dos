@@ -1,0 +1,38 @@
+
+body{
+
+    background-color: #1F2937;
+}
+
+img{
+  width: 40px;
+  height: 60px;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    color: white;
+}
+
+
+main {
+  margin-top: 20px; /* estilo base (celular) */
+}
+
+@media (min-width: 768px) {
+  /* Tablets */
+  main {
+    margin-top: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Desktop */
+  main {
+    margin-top: 60px;
+  }
+}
