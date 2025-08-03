@@ -18,7 +18,12 @@ async function addTool(event) {
     const nombre_api = inputNombreApi.value.trim();
     
     if (!api_key || !nombre_api) {
-        alert('Por favor, completa todos los campos.');
+        Swal.fire({
+            icon: 'warning',
+            title: 'Campos Incompletos',
+            text: 'Por favor, completa todos los campos requeridos.',
+            confirmButtonColor: '#3085d6'
+        });
         return;
     }
 
@@ -44,17 +49,43 @@ async function addTool(event) {
 
         if (data.success) {
             console.log("API Key agregada y encriptada:", data);
-            alert(`✅ API "${data.data.nombre_api}" agregada exitosamente!\n🔐 API Key encriptada automáticamente con AES-256-CBC\n👀 Preview: ${data.data.api_key_preview}`);
+            Swal.fire({
+                icon: 'success',
+                title: '¡API Key Agregada!',
+                html: `
+                    <div class="text-left">
+                        <p class="mb-2"><strong>✅ API:</strong> ${data.data.nombre_api}</p>
+                        <p class="mb-2"><strong>🔐 Encriptación:</strong> AES-256-CBC</p>
+                        <p class="mb-2"><strong>👀 Preview:</strong></p>
+                        <div class="bg-gray-100 p-2 rounded text-xs font-mono">
+                            ${data.data.api_key_preview}
+                        </div>
+                        <p class="text-xs text-gray-600 mt-2">📅 ${new Date(data.data.fechaCreacion).toLocaleString('es-ES')}</p>
+                    </div>
+                `,
+                confirmButtonColor: '#10b981',
+                confirmButtonText: '¡Excelente!'
+            });
             
             // Limpiar formulario
             form.reset();
         } else {
             console.error("Error del servidor:", data);
-            alert(`❌ Error: ${data.message}`);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error del Servidor',
+                text: data.message,
+                confirmButtonColor: '#ef4444'
+            });
         }
     } catch (error) {
         console.error("Error de conexión:", error);
-        alert("❌ Error de conexión con el servidor. Asegúrate de que esté ejecutándose en puerto 3000.");
+        Swal.fire({
+            icon: 'error',
+            title: 'Error de Conexión',
+            text: "No se pudo conectar con el servidor. Asegúrate de que esté ejecutándose en puerto 3000.",
+            confirmButtonColor: '#ef4444'
+        });
     } finally {
         // Restaurar botón
         submitButton.textContent = originalText;

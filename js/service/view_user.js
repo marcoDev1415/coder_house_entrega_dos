@@ -75,7 +75,18 @@ export async function view_user() {
     botonesEliminar.forEach(button => {
       button.addEventListener('click', async function() {
         const userId = this.getAttribute('data-id');
-        if (confirm('¿Estás seguro de que quieres eliminar este usuario?')) {
+        const result = await Swal.fire({
+          title: '¿Eliminar Usuario?',
+          html: `¿Estás seguro de que quieres eliminar este usuario?<br><br><small class="text-red-600">⚠️ Esta acción no se puede deshacer</small>`,
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#ef4444',
+          cancelButtonColor: '#6b7280',
+          confirmButtonText: '🗑️ Sí, eliminar',
+          cancelButtonText: '❌ Cancelar'
+        });
+
+        if (result.isConfirmed) {
           await eliminarUsuario(userId);
         }
       });
@@ -111,21 +122,45 @@ async function eliminarUsuario(userId) {
     });
 
     if (response.ok) {
-      alert('Usuario eliminado exitosamente');
+      Swal.fire({
+        icon: 'success',
+        title: '¡Usuario Eliminado!',
+        text: 'El usuario ha sido eliminado exitosamente',
+        confirmButtonColor: '#10b981',
+        timer: 2000,
+        showConfirmButton: false
+      });
       await view_user(); // Recargar la tabla
     } else {
       const data = await response.json();
-      alert(data.message || 'Error al eliminar usuario');
+      Swal.fire({
+        icon: 'error',
+        title: 'Error al Eliminar',
+        text: data.message || 'Error al eliminar usuario',
+        confirmButtonColor: '#ef4444'
+      });
     }
   } catch (error) {
     console.error('Error al eliminar usuario:', error);
-    alert('Error de conexión al eliminar usuario');
+    Swal.fire({
+      icon: 'error',
+      title: 'Error de Conexión',
+      text: 'No se pudo eliminar el usuario. Verifica tu conexión.',
+      confirmButtonColor: '#ef4444'
+    });
   }
 }
 
 function copiarToken(token) {
   navigator.clipboard.writeText(token).then(() => {
-    alert('Token copiado al portapapeles');
+    Swal.fire({
+      icon: 'success',
+      title: '¡Copiado!',
+      text: 'Token copiado al portapapeles',
+      confirmButtonColor: '#10b981',
+      timer: 1500,
+      showConfirmButton: false
+    });
   }).catch(err => {
     console.error('Error al copiar token:', err);
     // Fallback para navegadores que no soportan clipboard API
@@ -135,7 +170,14 @@ function copiarToken(token) {
     textArea.select();
     document.execCommand('copy');
     document.body.removeChild(textArea);
-    alert('Token copiado al portapapeles');
+    Swal.fire({
+      icon: 'success',
+      title: '¡Copiado!',
+      text: 'Token copiado al portapapeles',
+      confirmButtonColor: '#10b981',
+      timer: 1500,
+      showConfirmButton: false
+    });
   });
 }
 

@@ -423,7 +423,12 @@ async function pasteTokenToEncrypt() {
         tokenToEncrypt.focus();
     } catch (error) {
         console.error('Error al pegar:', error);
-        alert('No se pudo acceder al portapapeles. Pega manualmente el token.');
+        Swal.fire({
+            icon: 'warning',
+            title: 'Portapapeles No Disponible',
+            text: 'No se pudo acceder al portapapeles. Pega manualmente el token.',
+            confirmButtonColor: '#f59e0b'
+        });
     }
 }
 
@@ -445,7 +450,12 @@ async function pasteDecryptData() {
         encryptedToken.focus();
     } catch (error) {
         console.error('Error al pegar:', error);
-        alert('No se pudo acceder al portapapeles. Pega manualmente los datos.');
+        Swal.fire({
+            icon: 'warning',
+            title: 'Portapapeles No Disponible',
+            text: 'No se pudo acceder al portapapeles. Pega manualmente los datos.',
+            confirmButtonColor: '#f59e0b'
+        });
     }
 }
 
@@ -487,7 +497,14 @@ function addSwitchTabEventListeners() {
 
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
-        alert('Copiado al portapapeles');
+        Swal.fire({
+            icon: 'success',
+            title: '¡Copiado!',
+            text: 'Contenido copiado al portapapeles',
+            confirmButtonColor: '#10b981',
+            timer: 1500,
+            showConfirmButton: false
+        });
     }).catch(err => {
         console.error('Error al copiar:', err);
         // Fallback
@@ -497,6 +514,13 @@ function copyToClipboard(text) {
         textArea.select();
         document.execCommand('copy');
         document.body.removeChild(textArea);
-        alert('Copiado al portapapeles');
+        Swal.fire({
+            icon: 'success',
+            title: '¡Copiado!',
+            text: 'Contenido copiado al portapapeles',
+            confirmButtonColor: '#10b981',
+            timer: 1500,
+            showConfirmButton: false
+        });
     });
 }

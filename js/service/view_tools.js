@@ -25,27 +25,27 @@ async function viewTools() {
 
         if (!apiKeys || apiKeys.length === 0) {
             tablaTools.innerHTML = '<p class="text-center text-gray-500">No hay API Keys registradas.</p>';
-            return;
-        }
+        return;
+    }
 
-        let html = `
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-              <th scope="col" class="px-6 py-3">Nombre API</th>
+    let html = `
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th scope="col" class="px-6 py-3">Nombre API</th>
               <th scope="col" class="px-6 py-3">API Key Encriptada</th>
               <th scope="col" class="px-6 py-3">Fecha Creación</th>
               <th scope="col" class="px-6 py-3">Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-        `;
+        </tr>
+      </thead>
+      <tbody>
+  `;
 
         for (let i = 0; i < apiKeys.length; i++) {
             const fechaFormateada = new Date(apiKeys[i].fechaCreacion).toLocaleDateString('es-ES');
             
-            html += `
-         <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+        html += `
+     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
             <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
                 ${apiKeys[i].nombre_api || ''}
             </td>
@@ -65,7 +65,7 @@ async function viewTools() {
             <td class="px-6 py-4 text-xs">
                 ${fechaFormateada}
             </td>
-            <td class="px-6 py-4">
+        <td class="px-6 py-4">
                 <div class="flex space-x-2">
                     <button type="button" class="copy-encrypted text-gray-600 hover:text-gray-800 text-xs bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" data-encrypted="${apiKeys[i].api_key_encrypted}" data-iv="${apiKeys[i].iv}" title="Copiar datos encriptados">
                         📋 Enc.
@@ -74,13 +74,13 @@ async function viewTools() {
                         🗑️ Eliminar
                     </button>
                 </div>
-            </td>
-          </tr>
-        `;
-        }
+        </td>
+      </tr>
+    `;
+    }
 
-        html += `</tbody></table>`;
-        tablaTools.innerHTML = html;
+    html += `</tbody></table>`;
+    tablaTools.innerHTML = html;
 
         // Agregar event listeners
         addEventListeners();
@@ -128,7 +128,19 @@ function addEventListeners() {
         button.addEventListener('click', async function() {
             const apiId = this.getAttribute('data-id');
             const apiName = this.getAttribute('data-name');
-            if (confirm(`¿Estás seguro de que quieres eliminar la API "${apiName}"?`)) {
+            
+            const result = await Swal.fire({
+                title: '¿Eliminar API Key?',
+                html: `¿Estás seguro de que quieres eliminar la API <strong>"${apiName}"</strong>?<br><br><small class="text-red-600">⚠️ Esta acción no se puede deshacer</small>`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#ef4444',
+                cancelButtonColor: '#6b7280',
+                confirmButtonText: '🗑️ Sí, eliminar',
+                cancelButtonText: '❌ Cancelar'
+            });
+
+            if (result.isConfirmed) {
                 await eliminarApiKey(apiId);
             }
         });
@@ -184,11 +196,21 @@ async function desencriptarApiKey(apiId, apiName, button) {
             };
 
         } else {
-            alert(`❌ Error al desencriptar: ${data.message}`);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error al Desencriptar',
+                text: data.message,
+                confirmButtonColor: '#ef4444'
+            });
         }
     } catch (error) {
         console.error('Error al desencriptar API Key:', error);
-        alert('❌ Error de conexión al desencriptar API Key');
+        Swal.fire({
+            icon: 'error',
+            title: 'Error de Conexión',
+            text: 'No se pudo desencriptar la API Key. Verifica tu conexión.',
+            confirmButtonColor: '#ef4444'
+        });
     } finally {
         button.disabled = false;
         if (button.textContent.includes('Desencriptando')) {
@@ -207,21 +229,45 @@ async function eliminarApiKey(apiId) {
         const data = await response.json();
 
         if (data.success) {
-            alert(`✅ ${data.message}`);
+            Swal.fire({
+                icon: 'success',
+                title: '¡API Key Eliminada!',
+                text: data.message,
+                confirmButtonColor: '#10b981',
+                timer: 2000,
+                showConfirmButton: false
+            });
             await viewTools(); // Recargar la tabla
         } else {
-            alert(`❌ Error: ${data.message}`);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error al Eliminar',
+                text: data.message,
+                confirmButtonColor: '#ef4444'
+            });
         }
     } catch (error) {
         console.error('Error al eliminar API Key:', error);
-        alert('❌ Error de conexión al eliminar API Key');
+        Swal.fire({
+            icon: 'error',
+            title: 'Error de Conexión',
+            text: 'No se pudo eliminar la API Key. Verifica tu conexión.',
+            confirmButtonColor: '#ef4444'
+        });
     }
 }
 
 // Función auxiliar para copiar al portapapeles
 function copiarAlPortapapeles(texto, mensaje) {
     navigator.clipboard.writeText(texto).then(() => {
-        alert(`📋 ${mensaje}`);
+        Swal.fire({
+            icon: 'success',
+            title: '¡Copiado!',
+            text: mensaje,
+            confirmButtonColor: '#10b981',
+            timer: 1500,
+            showConfirmButton: false
+        });
     }).catch(err => {
         console.error('Error al copiar:', err);
         // Fallback
@@ -231,7 +277,14 @@ function copiarAlPortapapeles(texto, mensaje) {
         textArea.select();
         document.execCommand('copy');
         document.body.removeChild(textArea);
-        alert(`📋 ${mensaje}`);
+        Swal.fire({
+            icon: 'success',
+            title: '¡Copiado!',
+            text: mensaje,
+            confirmButtonColor: '#10b981',
+            timer: 1500,
+            showConfirmButton: false
+        });
     });
 }
 

@@ -231,7 +231,12 @@ async function pasteFromClipboard() {
         tokenInput.focus();
     } catch (error) {
         console.error('Error al pegar desde portapapeles:', error);
-        alert('No se pudo acceder al portapapeles. Pega manualmente el token.');
+        Swal.fire({
+            icon: 'warning',
+            title: 'Portapapeles No Disponible',
+            text: 'No se pudo acceder al portapapeles. Pega manualmente el token.',
+            confirmButtonColor: '#f59e0b'
+        });
     }
 }
 
